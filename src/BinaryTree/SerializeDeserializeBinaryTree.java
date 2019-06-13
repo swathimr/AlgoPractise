@@ -3,7 +3,7 @@ package BinaryTree;
 import java.util.Stack;
 
 /**
- * use in order traversal and keep appending to string builder
+ * use preorder traversal and keep appending to string builder
  * to deserilize split and recurse
  */
 public class SerializeDeserializeBinaryTree {

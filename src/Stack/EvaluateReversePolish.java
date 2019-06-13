@@ -1,5 +1,6 @@
 package Stack;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class EvaluateReversePolish {
@@ -34,5 +35,4 @@ public class EvaluateReversePolish {
     returnValue = Integer.valueOf(stack.pop());
     return returnValue;
   }
-
 }

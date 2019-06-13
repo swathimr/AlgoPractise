@@ -1,14 +1,14 @@
-package LinkedListQuestions;
+package Stack;
 
 import java.util.LinkedList;
 
-class StackUsingQueues {
+public class StackUsingQueue {
 
     LinkedList<Integer> queue1;
     LinkedList<Integer> queue2;
 
     /** Initialize your data structure here. */
-    public StackUsingQueues() {
+    public StackUsingQueue() {
         queue1 = new LinkedList<Integer>();
         queue2 = new LinkedList<Integer>();
     }
@@ -65,13 +65,5 @@ class StackUsingQueues {
     public boolean empty() {
         return queue1.isEmpty() && queue2.isEmpty();
     }
-}
 
-/**
- * Your MyStack object will be instantiated and called as such:
- * MyStack obj = new MyStack();
- * obj.push(x);
- * int param_2 = obj.pop();
- * int param_3 = obj.top();
- * boolean param_4 = obj.empty();
- */
+}

@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * Put the index and soruce/target in tree map
+ * Put the index and source/target in tree map
  * Then for every index, compare source and origin
  * Append the target to string builder
  */

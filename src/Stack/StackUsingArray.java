@@ -1,4 +1,4 @@
-package LinkedListQuestions;
+package Stack;
 
 /*  Implement stack using array
     Can hold any elements

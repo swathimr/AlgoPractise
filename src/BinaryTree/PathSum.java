@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ * post order traversal
  * we maintain list to add both left sum values and right sum values separately
  */
 public class PathSum {

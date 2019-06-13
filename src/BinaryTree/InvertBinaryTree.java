@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class InvertBinaryTree {
 
-    //Iterative add to queue
+    //Iterative add to queue - level order traversal and swap nodes
     public TreeNode invertTreeIterative(TreeNode root) {
         if (root == null)
             return root;

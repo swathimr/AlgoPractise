@@ -1,10 +1,10 @@
 package Array;
 
-public class MinimumSubArray {
+public class MinimumSizeSubArray {
 
     /**
      * i+1-left is the size of subarray
-     * timecomplexity o(n) space complexity O(1)
+     * time complexity o(n) space complexity O(1)
      * @param s
      * @param nums
      * @return

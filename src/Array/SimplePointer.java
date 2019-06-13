@@ -82,6 +82,22 @@ public class SimplePointer {
     }
   }
 
+  // time o(n) and space O(n)
+  public int[] productExceptSelf(int[] nums) {
+    int[] result = new int[nums.length];
+    result[nums.length-1] = 1;
+    //holds the product of elements to the right of i
+    for(int i=nums.length-2;i>=0;i--) {
+      result[i] = result[i+1]*nums[i+1];
+    }
+
+    int left = 1;
+    for(int i=0;i<nums.length;i++) {
+      result[i] = result[i] * left;
+      left =left*nums[i];
+    }
+    return result;
+  }
 
   // array is sorted - use two pointers
   public int[] twoSum2(int[] numbers, int target) {

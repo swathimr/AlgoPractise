@@ -1,7 +1,8 @@
-package Array;
+package BinarySearch;
 
 public class LongestCommonPrefix {
 
+  //time complexity O(S⋅logn) and space O(1)
   public String longestCommonPrefix(String[] strs) {
     if(strs ==null || strs.length ==0)
       return "";
