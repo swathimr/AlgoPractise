@@ -1,5 +1,6 @@
 package Strings;
 
+//time complexity O(n^2) and space O(1)
 public class LongestPalindromeSubstring {
 
     public String longestPalindrome(String s) {
