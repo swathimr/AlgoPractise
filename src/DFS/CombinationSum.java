@@ -3,6 +3,8 @@ package DFS;
 import java.util.ArrayList;
 import java.util.List;
 
+//time complexity O((n+k)!) n is the size of candidates, and k is the max repeated times for each candidates
+//space O(n),time O(n!)
 public class CombinationSum {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {

@@ -3,7 +3,7 @@ package HashMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+// time complexity O(n*m)
 public class GroupAnagrams {
 
     public List<List<String>> groupAnagrams(String[] strs) {

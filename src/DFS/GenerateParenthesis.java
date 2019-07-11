@@ -1,10 +1,9 @@
 package DFS;
 
-import Heap.MergeKsortedArrays;
-
 import java.util.ArrayList;
 import java.util.List;
 
+//time complexity  O(n!)
 public class GenerateParenthesis {
 
     public List<String> generateParenthesis(int n) {

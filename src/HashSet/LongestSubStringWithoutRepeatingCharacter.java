@@ -3,6 +3,8 @@ package HashSet;
 import java.util.HashSet;
 
 /**
+ * abcabcbb
+ * sliding window technique
  * Time compexity O(n), worst case - O(2n)
  * Space O(k) - k is size of set
  *

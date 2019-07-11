@@ -3,6 +3,7 @@ package DFS;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//time compexity 2^n
 public class SubSet {
 
   public ArrayList<ArrayList<Integer>> subsets(int[] S) {
