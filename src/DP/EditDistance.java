@@ -1,5 +1,6 @@
 package DP;
 
+// time complexity O(n2) and space
 public class EditDistance {
 
     public int minDistance(String word1, String word2) {

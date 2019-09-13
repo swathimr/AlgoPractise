@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class WordBreak {
 
-    //time compleacity O(string length * dict size).
+    //time complexity O(string length * dict size).
     public boolean wordBreak(String s, List<String> wordDict) {
         boolean[] t =new boolean[s.length()+1];
 

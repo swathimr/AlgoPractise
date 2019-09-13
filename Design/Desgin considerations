@@ -1,0 +1,34 @@
+1. Identify use cases together
+2. Make and state valid assumptions
+3. Draw the major components
+4. What will be the bottleneck or challenges
+Forex: for short url, some might be infrequently accessed and others more frequently. how do we deal with it
+
+Horizontal vs vertical scaling
+
+vertical scaling- increasing resources of specific node. we can only add so much ram or disk space
+horizontal scaling - increase number of nodes
+
+2. Load balancing : system to distribute the load evenly so that one server doesn't crash and take down the whole system
+
+3. Database Partitioning (Sharding)
+
+Sharding means splitting the data across multiple machines
+- vertical partitioning : partition based on features like one for messages, one for profiles
+- key based partitioning -  additional servers means reallocating all the data-a very expensive task.
+- Directory based partitioning - look up table to see where the data is located. disadvantages , single point of failure
+
+4. Caching
+ In memory cache. Typically sits between application layer and data store.
+
+5. Asynchronous processing and queues
+Slow operations should ideally be done asynchronously
+
+Bandwidth: This is the maximum amount of data that can be transferred in a unit of time.
+Throughput: actual amount of data that is transferred
+
+A MapReduce program is typically used to process large amounts of data.
+
+If it's write-heavy, you could consider queuing up the writes
+If it's read-heavy, you might want to cache
+
