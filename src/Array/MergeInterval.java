@@ -1,6 +1,6 @@
 package Array;
 
-import sun.jvm.hotspot.utilities.Interval;
+//import sun.jvm.hotspot.utilities.Interval;
 
 import java.util.ArrayList;
 import java.util.Collections;

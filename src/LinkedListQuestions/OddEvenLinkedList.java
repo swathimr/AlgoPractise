@@ -10,7 +10,6 @@ public class OddEvenLinkedList {
         ListNode p1 = head;
         ListNode p2 = head.next;
         ListNode connectNode = head.next;
-        ListNode result = head;
 
         while(p1!=null && p2!=null && p2.next!=null) {
             p1.next = p2.next;
@@ -20,6 +19,6 @@ public class OddEvenLinkedList {
             p2 = p2.next;
         }
         p1.next = connectNode;
-        return result;
+        return head;
     }
 }

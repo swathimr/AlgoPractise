@@ -24,8 +24,7 @@ public class IsomorphicString {
             {
                 if(mapVal.get(s1) == t1)
                     continue;
-                else
-                    return false;
+                return false;
             }
             else if(mapVal.containsValue(t1))
                 return false;

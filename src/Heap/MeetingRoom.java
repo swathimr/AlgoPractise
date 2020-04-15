@@ -1,27 +1,26 @@
 package Heap;
 
-import sun.jvm.hotspot.utilities.Interval;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
-//check if meeting end is lesser than next meeting start - true
+/**
+ * Time is O(nlogn) and space O(1)
+ * sort the start time
+ * compare each intervals end time to start time to see if they can make it to the meeting
+ */
 public class MeetingRoom {
 
-    public boolean canAttendMeetings(Interval[] intervals) {
-
-        Arrays.sort(intervals, new Comparator<Interval>() {
-            @Override
-            public int compare(Interval o1, Interval o2) {
-                return o1.start-o2.start;
+    public boolean canAttendMeetings(int[][] intervals) {
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            public int compare(int[] i1, int[] i2) {
+                return i1[0]-i2[0];
             }
         });
 
-        for(int i=0;i<intervals.length;i++) {
-            if(intervals[i].end>intervals[i+1].start)
+        for(int i=0;i<intervals.length-1;i++){
+            if(intervals[i][1] > intervals[i+1][0])
                 return false;
         }
-
         return true;
 
     }

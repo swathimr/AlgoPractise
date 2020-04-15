@@ -2,7 +2,7 @@ package BinarySearch;
 
 public class FirstBadVersion {
 
-    public int firstBadVersion(int n) {
+/*    public int firstBadVersion(int n) {
         int i=1,j = n;
         while(i<=j) {
             int mid =i+(j-i)/2;
@@ -16,6 +16,6 @@ public class FirstBadVersion {
         if(isBadVersion(i))
             return i;
         return j;
-    }
+    }*/
 
 }

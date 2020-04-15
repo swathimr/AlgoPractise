@@ -3,6 +3,7 @@ package Stack;
 import java.util.Stack;
 
 /**
+ * example )()())
  * time and space O(n)
  * when (, push to stack
  * when ), 1.pop from stack, 2. if empty insert index 3. max=i-stack.peek
@@ -25,5 +26,4 @@ public class LongestValidParenthesis {
         }
         return maxAns;
     }
-
 }

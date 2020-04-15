@@ -10,8 +10,9 @@ public class RemoveDuplicatesFromSortedList {
             if(p.val == p.next.val) {
                 p.next = p.next.next;
             }
-            else
+            else {
                 p = p.next;
+            }
         }
         return head;
     }

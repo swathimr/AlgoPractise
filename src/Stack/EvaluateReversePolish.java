@@ -12,8 +12,8 @@ public class EvaluateReversePolish {
       if(!operators.contains(t)){
         stack.push(t);
       }else{
-        int a = Integer.valueOf(stack.pop());
-        int b = Integer.valueOf(stack.pop());
+        int a = Integer.parseInt(stack.pop());
+        int b = Integer.parseInt(stack.pop());
         int index = operators.indexOf(t);
         switch(index){
           case 0:
