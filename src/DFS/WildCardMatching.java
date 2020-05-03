@@ -4,6 +4,8 @@ package DFS;
  * if '?' or char matches increment both i and j
  * if '*' increment only j, record starIndex and iIndex
  * return when j has reached end of pattern
+ * time complexity best case O(min(s,p) better case O(slogn)
+ * space O(1)
  */
 public class WildCardMatching {
 

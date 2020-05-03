@@ -8,7 +8,7 @@ import java.util.HashMap;
  * else get count of i
  * count ->0 remove that char
  * else decrement the count of character and increment i
-* time complexity O(n) and space k, size of map
+* time complexity O(n) and space O(k), size of map
  */
 public class LongestSubstringWithKUniqueCharacters {
 
@@ -30,7 +30,7 @@ public class LongestSubstringWithKUniqueCharacters {
             else{
                 while(map.size()>k){
                     char l = s.charAt(i);
-                    int count = map.get(i);
+                    int count = map.get(l);
                     if(count==1) {
                         map.remove(l);
                     } else {

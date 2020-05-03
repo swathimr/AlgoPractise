@@ -1,38 +1,27 @@
 package DP;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class WordBreak {
 
-    //time complexity O(string length * dict size).
+    //time complexity O(n^2) ans space O(n)
     public boolean wordBreak(String s, List<String> wordDict) {
-        boolean[] t =new boolean[s.length()+1];
+        boolean[] dp =new boolean[s.length()+1];
+        Set<String> dictSet = new HashSet<>(wordDict);
+        dp[0] = true; // initial state
 
-        t[0] = true;
-        for(int i=0;i<s.length();i++) {
-
-            if(!t[i])
-                continue;
-
-            for(String val:wordDict) {
-                int len = val.length();
-                int end = len+i;
-
-                if(end>s.length())
-                    continue;
-
-                if(t[end])
-                    continue;
-
-                if(s.substring(i,end).equals(val))
-                    t[end]= true;
+        for(int i=1;i<=s.length();i++) {
+            for(int j=0;j<i;j++){
+                if(dp[j] && dictSet.contains(s.substring(j,i))) {
+                    dp[i] = true;
+                    break;
+                }
             }
-
         }
-        return t[s.length()];
-
+        return dp[s.length()];
     }
 
 

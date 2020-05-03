@@ -2,31 +2,33 @@ package Strings;
 
 public class validPalindrome {
 
-  public boolean isPalindrome(String str) {
+  // time O(n) and space O(1)
+  public boolean isPalindrome(String s) {
 
-    if(str==null ||str.length()==0)
-      return true;
+    if (s == null || s.length() == 0) return true;
 
-    int l=0,r=str.length()-1;
-    str = str.toLowerCase();
-    while(l<=r) {
-      char left = str.charAt(l);
-      char right = str.charAt(r);
-
-      //if left contains any symbols or numbers
-      if(!((left>='a' && left<='z') || (left>='0'&&left<='9')))
-        l++;
-        //if right contains any symbols or numbers
-      else if(!((right>='a' && right<='z')|| (right>='0'&&right<='9')))
-        r--;
-      else if(left == right)
-      {
-        l++;r--;
+    s = s.toLowerCase();
+    int i = 0, j = s.length() - 1;
+    while (i < j) {
+      while (i < j
+          && !((s.charAt(i) >= 'a' && s.charAt(i) <= 'z')
+              || (s.charAt(i) >= '0' && s.charAt(i) <= '9'))) {
+        i++;
+        continue;
       }
-      else
+
+      while (i < j
+          && !((s.charAt(j) >= 'a' && s.charAt(j) <= 'z')
+              || (s.charAt(j) >= '0' && s.charAt(j) <= '9'))) {
+        j--;
+        continue;
+      }
+      if (s.charAt(i) != s.charAt(j)) {
         return false;
+      }
+      i++;
+      j--;
     }
     return true;
   }
-
 }

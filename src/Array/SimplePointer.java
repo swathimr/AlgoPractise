@@ -12,14 +12,13 @@ public class SimplePointer {
     if(nums.length == 0 || nums.length == 1)
       return nums.length;
 
-    int i= 0;
-    for(int j=1;j<nums.length;j++)
-    {
-      if(nums[i]!=nums[j])
-      {
+    int j=1;int i=0;
+    while(j<nums.length){
+      if(nums[i]!=nums[j]) {
         i++;
         nums[i] = nums[j];
       }
+      j++;
     }
     return i+1;
   }
@@ -30,15 +29,17 @@ public class SimplePointer {
    * @return
    */
   public int removeDuplicatesTwo(int[] nums) {
-    if(nums.length ==0 || nums.length ==1 ||nums.length==2)
+    if(nums.length<=2)
       return nums.length;
-    int i= 1,j=2;
+
+    int i = 1,j=2;
     while(j<nums.length) {
-      if(nums[j]==nums[i] && nums[j]==nums[i-1])
+      if(nums[i] == nums[j] && nums[j] == nums[i-1]) {
         j++;
-      else{
+      }
+      else {
         i++;
-        nums[i] =nums[j];
+        nums[i] = nums[j];
         j++;
       }
     }
@@ -54,12 +55,13 @@ public class SimplePointer {
   public int removeElement(int[] nums, int val) {
     if(nums.length == 0)
       return nums.length;
-    int i = 0;
-    for(int j = 0;j<nums.length;j++) {
+    int i=0,j=0;
+    while(j<nums.length) {
       if(nums[j]!=val) {
-        nums[i] = nums[j];
+        nums[i]=nums[j];
         i++;
       }
+      j++;
     }
     return i;
   }
@@ -69,16 +71,15 @@ public class SimplePointer {
    * @param nums
    */
   public void moveZeroes(int[] nums) {
-    int i =0;
-    for(int j=0 ;j<nums.length;j++) {
-      if(nums[j]!=0) {
-        nums[i] = nums[j];
-        i++;
+    int i=0,j=0;
+    while(j<nums.length){
+      if(nums[j]!=0){
+        nums[i++]=nums[j];
       }
+      j++;
     }
-    while(i<nums.length) {
-      nums[i] = 0;
-      i++;
+    while(i<nums.length){
+      nums[i++]= 0;
     }
   }
 

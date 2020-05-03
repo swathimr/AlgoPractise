@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 //Time and space O(n)
@@ -23,6 +25,29 @@ public class IntersectionOfTwoArrays {
         }
 
         return arr;
+    }
+
+    // time O(m+n) and space  O(min(m,n)
+    public int[] intersect2(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int num : nums1) {
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int num:nums2) {
+            if(map.get(num)!=null && map.get(num)>0) {
+                map.put(num,map.get(num)-1);
+                list.add(num);
+            }
+        }
+
+        int[] ret = new int[list.size()];
+        for(int i = 0; i < list.size();i++){
+            ret[i] = list.get(i);
+        }
+
+        return ret;
     }
 
 }

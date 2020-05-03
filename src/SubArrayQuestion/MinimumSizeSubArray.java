@@ -1,4 +1,4 @@
-package Array;
+package SubArrayQuestion;
 
 public class MinimumSizeSubArray {
 

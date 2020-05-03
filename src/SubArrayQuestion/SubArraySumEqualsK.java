@@ -1,8 +1,8 @@
-package HashMap;
+package SubArrayQuestion;
 
 import java.util.HashMap;
 
-// return total number of occurances it can add up to the sum
+// return total number of occurrences it can add up to the sum
 // time and space O(n)
 public class SubArraySumEqualsK {
 

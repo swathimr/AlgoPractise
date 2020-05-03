@@ -1,4 +1,4 @@
-package DP;
+package SubArrayQuestion;
 
 //time complexity O(n) and space O(1)
 public class MaximumSubArraySum {

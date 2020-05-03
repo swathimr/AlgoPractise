@@ -15,4 +15,19 @@ public class TwoSum {
         }
         return new int[]{0,0};
     }
+
+    public int[] twoSum2(int[] nums, int target) {
+        int i = 0,j = nums.length -1;
+        while(i<j) {
+            int total = nums[i]+nums[j];
+            if(total>target)
+                j--;
+            else if(total<target)
+                i++;
+            else
+                return new int[]{i+1,j+1};
+        }
+        return null;
+    }
+
 }
