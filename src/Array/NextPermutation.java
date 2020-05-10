@@ -12,13 +12,15 @@ public class NextPermutation {
   public void nextPermutation(int[] nums) {
 
     int i = nums.length - 2;
+    // find first decreasing element
     while (i >= 0 && nums[i + 1] <= nums[i]) {
       i--;
     }
+
     int j = nums.length - 1;
     if (i >= 0) {
       while (j >= 0 && nums[j] <= nums[i]) {
-        i--;
+        j--;
       }
       swap(nums, i, j);
     }

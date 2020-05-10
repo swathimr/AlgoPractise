@@ -3,20 +3,22 @@ package BinaryTree;
 public class IsValidBinarySearchTree {
 
     public boolean isValidBST(TreeNode root) {
-        return helper(root,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY);
+        return helper(root,null,null);
     }
 
-    public boolean helper(TreeNode node, double min, double max) {
-        if(node==null)
+    public boolean helper(TreeNode node, Integer lower,Integer upper) {
+        if(node == null)
             return true;
 
-        if(node.val<=min || node.val>=max)
+        if(lower!= null && node.val <= lower)
+            return false;
+        if(upper!=null && node.val>= upper)
             return false;
 
-        boolean isLeftBST = helper(node.left, min,node.val);
-        boolean isRightBST = helper(node.right,node.val,max);
+        boolean ifLeftvalid = helper(node.left, lower, node.val);
+        boolean ifRightvalid = helper(node.right, node.val, upper);
 
-        if(!isLeftBST||!isRightBST)
+        if(!ifLeftvalid || !ifRightvalid)
             return false;
 
         return true;

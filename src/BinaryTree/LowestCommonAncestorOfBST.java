@@ -4,16 +4,16 @@ public class LowestCommonAncestorOfBST {
 
     // iterative
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        TreeNode t = root;
-        while(t!=null)
+        TreeNode node = root;
+        while(node!=null)
         {
-            if(p.val>t.val && q.val>t.val){
-                t = t.right;
-            } else if(p.val<t.val && q.val<t.val) {
-                t = t.left;
+            if(p.val>node.val && q.val>node.val){
+                node = node.right;
+            } else if(p.val<node.val && q.val<node.val) {
+                node = node.left;
             }
             else {
-                return t;
+                return node;
             }
         }
         return null;

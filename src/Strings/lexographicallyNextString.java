@@ -12,7 +12,7 @@ public class lexographicallyNextString {
           return str;
 
       int i= str.length()-1;
-      while (str.charAt(i) == 'z' && i>=0) {
+      while (i>=0  && str.charAt(i) == 'z') {
           i--;
       }
 

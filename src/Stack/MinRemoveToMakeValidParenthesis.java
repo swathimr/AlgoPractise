@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
-/**
+/** Example : lee(t(c)o)de)
  * add index ( to stack
  * if ) if stack is not empty pop
  * else add index to set. add remaining stack elements to set

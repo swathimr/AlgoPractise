@@ -9,8 +9,8 @@ public class MaximumDepthOfBinaryTree {
         int leftDepth = maxDepth(root.left);
         int rightDepth = maxDepth(root.right);
 
-        int bigger = Math.max(leftDepth,rightDepth);
-        return bigger+1;
+        int max = Math.max(leftDepth,rightDepth);
+        return max+1;
     }
 
     public int heightOfBinaryTree(TreeNode node)

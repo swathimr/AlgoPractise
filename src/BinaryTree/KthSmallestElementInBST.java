@@ -9,30 +9,22 @@ import java.util.Stack;
  */
 public class KthSmallestElementInBST {
 
-    //iterative
+    //inorder and return when k is 0
     public int kthSmallest(TreeNode root, int k) {
+        TreeNode curr = root;
         Stack<TreeNode> stack = new Stack<>();
-
-        stack.push(root);int result=0;
-
-        while(!stack.isEmpty()) {
-            TreeNode temp = stack.peek();
-            if(temp.left!=null) {
-                stack.push(temp.left);
-                temp.left=null;
+        while(!stack.isEmpty() || curr!=null) {
+            while(curr!=null){
+                stack.push(curr);
+                curr = curr.left;
             }
-            else {
-                stack.pop();
-                k--;
-                if(k==0) {
-                    result= temp.val;
-                    break;
-                }
-                if(temp.right!=null)
-                    stack.push(temp.right);
-            }
+            curr = stack.pop();
+            if(--k == 0)
+                return curr.val;
+            curr = curr.right;
+
         }
-        return result;
+        return 0;
     }
 
     public ArrayList<Integer> inorder(TreeNode root, ArrayList<Integer> arr) {

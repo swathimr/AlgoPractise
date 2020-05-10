@@ -11,7 +11,24 @@ package DP;
  */
 public class RegExMatching {
 
-    public boolean isMatch(String s, String p) {
+  public static void main(String[] args) {
+      String s = "abc", p = "abm*c";
+      System.out.println(isMatch(s,p));
+//      s = "abc world"; p = "abm*c";
+      s = "abc world"; p = "worlb*d";
+      boolean prev = false;
+      for(String val:s.split(" ")){
+      if (!prev) {
+        prev = isMatch(val, p);
+          }
+      }
+
+      System.out.println(prev);
+/*      s = "abc world"; p = "worb*ld";
+      System.out.println(isMatch(s,p));*/
+  }
+
+    public static boolean isMatch(String s, String p) {
         boolean[][] dp = new boolean[s.length()+1][p.length()+1];
 
         dp[0][0] = true;
@@ -22,6 +39,14 @@ public class RegExMatching {
 
         for(int i=0;i<s.length();i++) {
             for(int j=0;j<p.length();j++) {
+
+                // for words with space
+                if(s.charAt(i) == ' ' && j == p.length()-1) {
+          System.out.println(i);
+          System.out.println(j);
+                    return dp[i-1][p.length()-1];
+                }
+
                 if(s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') {
                     dp[i+1][j+1] = dp[i][j];
                 }

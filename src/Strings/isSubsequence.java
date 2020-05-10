@@ -2,7 +2,7 @@ package Strings;
 
 public class isSubsequence {
 
-
+// ace, abcde
     public boolean isSubsequence(String s, String t) {
         if (s.length() == 0)
             return true;

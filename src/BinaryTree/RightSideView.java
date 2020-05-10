@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Add to queue
  * iterate the size of queue and add right to queue then left to queue
- * if i==0, add to list coz its top
+ * if i==0, add to list coz its right val
  */
 public class RightSideView {
 

@@ -3,7 +3,7 @@ package Array;
 import java.util.ArrayList;
 import java.util.List;
 
-// time complexist O(n) and space O(1)
+// time complexity O(n) and space O(1)
 public class SummaryRanges {
 
   public static void main(String[] args) {

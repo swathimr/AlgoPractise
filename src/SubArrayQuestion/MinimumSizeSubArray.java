@@ -17,7 +17,7 @@ public class MinimumSizeSubArray {
         for(int i=0;i<nums.length;i++) {
             sum +=nums[i];
             while(sum>=s) {
-                answer = Math.min(answer,i+1-left);
+                answer = Math.min(answer,i-left+1);
                 sum-=nums[left];
                 left++;
             }
