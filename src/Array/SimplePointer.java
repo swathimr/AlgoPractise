@@ -1,5 +1,8 @@
 package Array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SimplePointer {
 
   /** Time complexity o(n) space o(1)
@@ -115,5 +118,4 @@ public class SimplePointer {
     }
     return null;
   }
-
 }

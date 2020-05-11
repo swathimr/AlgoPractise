@@ -16,9 +16,9 @@ public class UniquePaths {
             Arrays.fill(arr,1);
         }
 
-        for(int col = 1;col < m;col++) {
-            for(int row = 1; row <n; row ++) {
-                result[col][row] = result[col-1][row] + result [col] [row-1];
+        for(int i = 1; i < m; i++) {
+            for(int j = 1; j<n; j ++) {
+                result[i][j] = result[i-1][j] + result[i] [j-1];
             }
         }
 

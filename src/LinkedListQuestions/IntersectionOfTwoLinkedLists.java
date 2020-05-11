@@ -9,7 +9,7 @@ import java.util.HashSet;
 public class IntersectionOfTwoLinkedLists {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        HashSet val = new HashSet();
+        HashSet<ListNode> val = new HashSet<>();
         boolean intersect  = false;
 
         if(headA == null) {
@@ -24,7 +24,7 @@ public class IntersectionOfTwoLinkedLists {
             headA = headA.next;
         }
 
-        while(headB!=null && intersect!=true) {
+        while(headB!=null && !intersect) {
             if(val.contains(headB)) {
                 intersect = true;
             }

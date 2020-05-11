@@ -17,6 +17,7 @@ public class MeetingRoom2 {
         if(intervals == null || intervals.length == 0)
             return 0;
 
+        // sort by start time
         Arrays.sort(intervals, new Comparator<int[]>() {
             public int compare(int[] i1, int[] i2){
                 return i1[0]-i2[0];

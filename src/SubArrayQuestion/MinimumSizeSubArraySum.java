@@ -1,6 +1,6 @@
 package SubArrayQuestion;
 
-public class MinimumSizeSubArray {
+public class MinimumSizeSubArraySum {
 
     /**
      * i+1-left is the size of subarray

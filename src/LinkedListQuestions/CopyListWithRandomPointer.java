@@ -1,7 +1,7 @@
 package LinkedListQuestions;
 
 // time O(1) and space O(n)
-public class RandomPointerInALinkedList {
+public class CopyListWithRandomPointer {
 
     public Node copyRandomList(Node head) {
         if(head == null)

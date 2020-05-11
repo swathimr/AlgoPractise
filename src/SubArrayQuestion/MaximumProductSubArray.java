@@ -1,4 +1,4 @@
-package DP;
+package SubArrayQuestion;
 
 public class MaximumProductSubArray {
 

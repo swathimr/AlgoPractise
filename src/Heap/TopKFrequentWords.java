@@ -9,7 +9,7 @@ add to list and reverse
 time O(Nlogk), n is number of words
 space - O(n)
  */
-public class TopKFrequentElements {
+public class TopKFrequentWords {
 
     public List<String> topKFrequent(String[] words, int k) {
         HashMap<String,Integer> countMap = new HashMap<>();

@@ -1,6 +1,6 @@
 package DP;
 
-public class LongetsCommonSubstring {
+public class LongestCommonSubstring {
 
     // dp[i-1][j-1] adjacent value
     private int getLongestCommonSubstring(String a, String b) {

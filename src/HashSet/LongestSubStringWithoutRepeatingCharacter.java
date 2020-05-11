@@ -7,11 +7,12 @@ import java.util.HashSet;
  * sliding window technique
  * Time complexity O(n), worst case - O(2n)
  * Space O(k) - k is size of set
- *
+ * if set does not contain add to set and calc result
+ * else while i<j, if char at i == j , inc i and break else remove froms et and inc i
  */
 public class LongestSubStringWithoutRepeatingCharacter {
 
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         if(s== null || s.length() == 0)
             return 0;
 
@@ -35,4 +36,8 @@ public class LongestSubStringWithoutRepeatingCharacter {
         }
         return result;
     }
+
+  public static void main(String[] args) {
+      lengthOfLongestSubstring("abcabcbb");
+  }
 }

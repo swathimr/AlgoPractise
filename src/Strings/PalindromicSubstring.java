@@ -14,7 +14,7 @@ public class PalindromicSubstring {
     }
 
     public void extendedPalindrome(String s,int left, int right) {
-        while(left >=0 && right<s.length() && s.charAt(left) == s.charAt(right)) {
+        while(left >=0 && right<=s.length()-1 && s.charAt(left) == s.charAt(right)) {
             count++;
             left--;right++;
         }
