@@ -1,0 +1,37 @@
+1. Send and receive Messages- one to one chat
+2. Group Messages
+3. Message Sent  and delivered receipts
+4. Last seen - user acitvity
+
+
+1. One to one
+Sessions microservice - which users are connected to which box. to avoid tight coupling, we see a lot of updates going to be happening
+when A sends message(B) to gateway, it just sendsto session service, its like a router. it figures otu where teh user b exists
+
+2. Group service - who exists in which group
+IT can be overwhelming for sessions service to handle groups as well so we dcouple to add group service.
+
+For ex A sends group message, sessions asks group service who are the members in this group. group service gives the user id.
+Session service will run againsts its own database to find out which gateway they are connected to and send messages.
+
+It gets complicated with lot of users, so we limit.
+To reduce memory footprint like have userid, group id mappings we cna use consitent hashing
+
+websockets (peer - peer , no client or server)
+Sessions can acknowledge, I got the message and I will send it asap. - sent receipt
+Once message is received by b, it sends acknowledgement to gateway to session
+Read -exact same flow, once user open the chat send ack and the same flow
+
+3. Last seen microservice
+USer makens any kind o request to server thats considered as an acitivity and will be updated.
+If A was online 3s ago , b should be told active instead of 3 sec ago. we can have a service do that computation
+
+4. Parser and unparse micro
+between gateway and sessions
+
+Message queue
+one we add a message it ensures a message will be sent
+retries and things can be configurable
+
+Improvements
+Deprioritize features like last seen inorder to send messages

@@ -29,7 +29,7 @@ public class MergeKsortedLists {
         while(!queue.isEmpty()) {
             ListNode n = queue.poll();
             p.next = n;
-            p =p.next;
+            p = p.next;
 
             if(n.next!=null)
                 queue.offer(n.next);

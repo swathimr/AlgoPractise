@@ -104,6 +104,7 @@ public class SimplePointer {
   }
 
   // array is sorted - use two pointers
+  // print all pairs in array of integers whose sum is equal to given number, dont return just increment and decrement
   public int[] twoSum2(int[] numbers, int target) {
     int i=0,j = numbers.length-1;
     while(i<j) {

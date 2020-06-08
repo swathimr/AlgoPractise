@@ -8,7 +8,7 @@ import java.util.HashSet;
  * Time complexity O(n), worst case - O(2n)
  * Space O(k) - k is size of set
  * if set does not contain add to set and calc result
- * else while i<j, if char at i == j , inc i and break else remove froms et and inc i
+ * else while i<j, if char at i == j , inc i and break else remove from set and inc i
  */
 public class LongestSubStringWithoutRepeatingCharacter {
 

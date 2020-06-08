@@ -20,9 +20,9 @@ public class Permutation {
         return result;
     }
 
-    public void helper(int start,int[] nums, List<List<Integer>> result) {
+    public void helper(int left, int[] nums, List<List<Integer>> result) {
 
-        if(start==nums.length-1) {
+        if(left ==nums.length-1) {
             ArrayList<Integer> list = new ArrayList<>();
             for(int val:nums){
                 list.add(val);
@@ -31,10 +31,10 @@ public class Permutation {
             return;
         }
 
-        for(int i=start;i<nums.length;i++) {
-            swap(i,start,nums);
-            helper(start+1,nums,result);
-            swap(i,start,nums);
+        for(int i = left; i<nums.length; i++) {
+            swap(i, left,nums);
+            helper(left +1,nums,result);
+            swap(i, left,nums);
         }
     }
 

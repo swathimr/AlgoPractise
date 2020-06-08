@@ -1,0 +1,13 @@
+class EmailService {
+    SESClient client;
+
+    public void sendBulkEmail(String template, List<String> emails, Map<String, Object> model) {
+        for (String email : emails) {
+            sendEmail(String template, email, model);
+        }
+    }
+
+    private boolean sendEmail(String template, String email, Map<String, Object> model) {
+        return client.sendTemplateEmail(template, email, model);
+    }
+}

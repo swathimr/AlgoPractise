@@ -1,0 +1,28 @@
+class Meeting {
+    int id;
+    MeetingRoom location;
+    List<Attendee> attendees;
+    Date start;
+    Date end;
+    EmailService emailService;
+
+    public Meeting(MeetingRoom location, Date start, Date end) {
+        this.id = generateId();
+        this.location = location;
+        this.start = start;
+        this.end = end;
+        this.emailService = new EmailService();
+    }
+
+    /**
+     * Use AWS SES for transactional emails.
+     */
+    public void invite(List<Attendee> attendees) {
+        // this is a bit of Groovy, just for fun.
+        emailService.sendBulkEmail(
+                EMAIL_NOTIFICATION_TEMPLATE_NAME,
+                attendees.collect { return it.email },
+			[ meeting: this ]
+		);
+    }
+}

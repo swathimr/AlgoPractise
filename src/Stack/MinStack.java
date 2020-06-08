@@ -5,11 +5,11 @@ import java.util.Stack;
 // time O(1) and space O(n)
 public class MinStack {
 
-    Stack<int[]> stack = new Stack<>();
+    Stack<int[]> stack;
 
     /** initialize your data structure here. */
     public MinStack() {
-
+        stack = new Stack<>();
     }
 
     public void push(int x) {

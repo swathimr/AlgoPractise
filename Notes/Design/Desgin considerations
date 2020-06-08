@@ -1,3 +1,16 @@
+General Approach
+Requirement clarification
+Interface define - contract
+Data model
+High level design
+Dig deeper into two or three components
+
+I dentifying and resolving bottle necks -
+any single point of failure
+enough replicas
+monitoring performance of our service
+
+
 1. Identify use cases together
 2. Make and state valid assumptions
 3. Draw the major components
@@ -23,6 +36,13 @@ Sharding means splitting the data across multiple machines
 
 5. Asynchronous processing and queues
 Slow operations should ideally be done asynchronously
+
+How to avoid single point of failure?
+Adding more servers
+Adding additional load balancing
+Master slave
+
+
 
 Bandwidth: This is the maximum amount of data that can be transferred in a unit of time.
 Throughput: actual amount of data that is transferred

@@ -2,15 +2,6 @@ package LinkedListQuestions;
 
 public class PalindromeLinkedList {
 
-    public static void main(String args[]) {
-
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(0);
-        head.next.next = new ListNode(1);
-        System.out.println(isPalindrome(head));
-
-    }
-
 
     /**
      * move to middle of the list to split the list
@@ -20,47 +11,42 @@ public class PalindromeLinkedList {
      * @param head
      * @return
      */
-    public static boolean isPalindrome(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
+    public boolean isPalindrome(ListNode head) {
+        if (head == null) return true;
 
-        if(head == null || head.next==null)
-            return true;
+        ListNode firstHalf = firstHalfEnd(head);
+        ListNode secondHalfStart = reverseList(firstHalf.next);
 
-        // move to middle of the list
-        while(fast.next!=null && fast.next.next!=null) {
+        ListNode p1 = head;
+        ListNode p2 = secondHalfStart;
+        boolean result = true;
+        while(result && p2 != null) {
+            if(p1.val != p2.val)
+                result = false;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return result;
+    }
+
+    public ListNode firstHalfEnd(ListNode head) {
+        ListNode slow = head,fast = head;
+        while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
+        return slow;
+    }
 
-        ListNode secondHead = slow.next;
-        slow.next = null;
-
-
-        ListNode p1 = secondHead;
-        ListNode p2 = p1.next;
-
-        // reverse the second list
-        while(p1!=null && p2!=null) {
+    public ListNode reverseList(ListNode head) {
+        ListNode p1 = null,p2 = head;
+        while(p2!=null) {
             ListNode temp = p2.next;
             p2.next = p1;
             p1 = p2;
             p2 = temp;
         }
-
-        secondHead.next =null;
-
-        ListNode p = head;
-        ListNode q = (p2==null?p1:p2);
-
-
-        while(q!=null) {
-            if(p.val != q.val)
-                return false;
-            p = p.next;
-            q = q.next;
-        }
-        return true;
+        return p1;
     }
 
 }

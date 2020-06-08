@@ -1,56 +1,56 @@
 package DFS;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
- * time complexity O(m*n)
- * add top word to queue
- * end step = if word equals end word
- * find all the transformation of the current word
- * if exists in dictionary add to queue and remove from dictionary
+ * O(M 2 ×N), where M is the length of words and N is the total number of words in the input word list
  */
 public class WordLadder {
 
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        LinkedList<WordNode> queue = new LinkedList<>();
-        queue.add(new WordNode(beginWord,1));
+    public int ladderLength(String start, String end, List<String> dict) {
 
-        while(!queue.isEmpty()) {
-            WordNode top = queue.remove();
-            String word = top.word;
+        if(!dict.contains(end))
+            return 0;
 
-            if(word.equals(endWord))
-                return top.steps;
+        Set<String> dictSet = new HashSet<>(dict);
+        Set<String> beginSet = new HashSet<>();
+        Set<String> endSet = new HashSet<>();
+        beginSet.add(start);
+        endSet.add(end);
+        int step = 1;
+        HashSet<String> visited = new HashSet<>();
 
-            char[] arr = word.toCharArray();
-            for(int i=0;i<arr.length;i++) {
-                for(char c = 'a';c<='z';c++) {
-                    char temp = arr[i];
+        while(!beginSet.isEmpty() && !endSet.isEmpty()) {
+            if(beginSet.size() > endSet.size()) {
+                Set<String> set = beginSet;
+                beginSet = endSet;
+                endSet = set;
+            }
 
-                    if(c!=arr[i])
-                        arr[i] =c;
-
-                    String newWord = String.valueOf(arr);
-                    if(wordList.contains(newWord)) {
-                        queue.add(new WordNode(newWord,top.steps+1));
-                        wordList.remove(newWord);
+            Set<String> temp = new HashSet<>();
+            for(String word : beginSet) {
+                char[] val = word.toCharArray();
+                for(int i = 0; i< val.length; i++) {
+                    for(char c = 'a'; c <= 'z'; c++) {
+                        char old = val[i];
+                        val[i] = c;
+                        String tempWord = String.valueOf(val);
+                        if(endSet.contains(tempWord))
+                            return step+1;
+                        if(!visited.contains(tempWord) && dictSet.contains(tempWord)) {
+                            visited.add(tempWord);
+                            temp.add(tempWord);
+                        }
+                        val[i] = old;
                     }
-                    arr[i] = temp;
                 }
             }
+            beginSet = temp;
+            step++;
         }
-
         return 0;
-    }
-}
-
-class WordNode {
-    String word;
-    int steps;
-
-    public WordNode(String word, int steps) {
-        this.word = word;
-        this.steps = steps;
     }
 }

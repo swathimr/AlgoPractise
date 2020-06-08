@@ -1,0 +1,6 @@
+Spot - represent one block of 8*8 and an optional piece
+Piece - abstr class
+Board - 8*8 containing active chess peieces
+player
+Move- game move, containing starting and ending spot. keeps track of played who moved
+Game - controls flow of the game

@@ -1,0 +1,63 @@
+1. Store or Get images
+2. Like and comment functionality
+3. follow someone
+4. Publish newsfeed
+
+for feature 1 same as tinder file system.
+can we comment on a comment and can we like a comment ?
+
+Feature 2
+Likes table
+like id, parent id , type(comment/post), user id, timestamp, active status
+parent id can be comment or post id
+
+post table
+post id,text, imageurl, timestamp, user id
+
+user id is needed coz we want to get all the posts for this user
+
+comment table
+comment id, text, tiemstamp
+
+Activity table (defines likes for particular activity id)
+activity id, likes, type
+
+Feature 3
+ who follows user x
+ which users does X follow
+ follower id, followee id, ts
+ swathi, steven hawking, ts
+
+user feed service - gives top 20 feeds for the user to look at
+
+ Load balancer can have the snapshot of the entire system liek which service are on which box nad how does it connect to it.
+ Load balancer will send that information to hte gateway as a snapshot so gateway will know where to send the req to.
+ Assuming load is balanced by consistent hashing. hash on user id
+
+ user feed service dependent on post service and follow service
+ post service - stroes info on posts the users had created. gives post for all users of the day
+ follow service- who I follow and who follow me.
+
+PRECOMPUTE THE USER FEED and store it in cache. Most recently used will be the users served by the cache
+
+whenever user posts, it goes to post service, persisted on database.
+post service send notification to user service. update precomputed feed
+
+USe websockets to update client when new feeds come
+
+CELEBRITY
+send notifcation to million users, will crash system
+can do batch processing like 100 ppl at once.
+other option dont send notifcation, user will pull from them. pull model.
+for regular user - push model
+
+ some other services
+ image service
+ Activity service
+
+ Chat module
+ Profile service
+ sessions management
+
+ Get all users I follow . one I have these users, query posts service to get posts created by these users
+ Limit posts to 20, would reduce the load

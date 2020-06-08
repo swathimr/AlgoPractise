@@ -1,39 +1,40 @@
 package Array;
 
-//import sun.jvm.hotspot.utilities.Interval;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
 
 
 /**
- * use comparator and sort the interval
+ * Sort interval by start time
+ * check if start time is less the new intervalend time
+ * if yes, recompute end time
+ * else reset new interval and add it to list
  * O(nlogn)
  */
 
 public class MergeInterval {
-//  public List<Interval> merge(List<Interval> intervals)  {
-//    if(intervals==null || intervals.size()<1)
-//      return intervals;
-//
-//    List<Interval> list = new ArrayList<>();
-//    Collections.sort(intervals,Comparator.comparing((Interval it)->it.start));
-//
-//    Interval initial = intervals.get(0);
-//    for(int i=1;i<intervals.size();i++){
-//      Interval next = intervals.get(i);
-//      if(next.start<=initial.end)
-//        initial.end = Math.max(next.end,initial.end);
-//      else {
-//        list.add(next);
-//        initial = next;
-//      }
-//
-//    }
-//    list.add(initial);
-//    return list;
-//  }
+    public static int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (i1,i2) -> Integer.compare(i1[0],i2[0]));
 
+        List<int[]> result = new ArrayList<>();
+        int[] newInterval = intervals[0];
+        result.add(newInterval);
+        for(int[] interval : intervals) {
+            if(interval[0] <= newInterval[1]) {
+                newInterval[1] = Math.max(interval[1], newInterval[1]);
+            } else {
+                newInterval = interval;
+                result.add(newInterval);
+            }
+        }
+
+
+       return result.toArray(new int[result.size()][]);
+  }
+
+  public static void main(String[] args) {
+        int[][] input = new int[][]{{1,3},{2,6},{8,10},{15,18}};
+    merge(input);
+  }
 }

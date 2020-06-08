@@ -1,0 +1,45 @@
+class Scheduler {
+    private static final int MAX_HISTORICAL_MEETING_STORAGE = 20;
+
+    List<MeetingRoom> meetingRooms;
+    Meeting[] history;
+    int historySize;
+
+    public Scheduler(List<MeetingRoom> rooms) {
+        this.meetingRooms = rooms;
+        this.history = new Meeting[MAX_HISTORICAL_MEETING_STORAGE];
+        this.historySize = 0;
+    }
+
+    public Meeting book(Date start, Date end) throws NoMeetingRoomsAvailableException {
+        try {
+            for (MeetingRoom room : meetingRooms) {
+                if (room.isAvailable(start, end)) {
+                    Meeting meeting = room.scheduleMeeting(start, end);
+                    saveToHistory(meeting);
+                    return meeting;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.message);
+        }
+
+        throw new NoMeetingRoomsAvailableException();
+    }
+
+    private void saveToHistory(Meeting meeting) {
+        if (historySize == MAX_HISTORICAL_MEETING_STORAGE) {
+            history[0] = null;
+            for (int i = 1; i < MAX_HISTORICAL_MEETING_STORAGE; i++) {
+                history[i - 1] = history[i];
+            }
+        }
+
+        history[historySize++] = meeting;
+    }
+
+    public void invite(Meeting meeting, List<Attendee> attendees) {
+        meeting.invite(attendees);
+    }
+
+}

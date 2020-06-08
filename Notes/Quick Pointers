@@ -1,0 +1,123 @@
+
+Array
+ 1. Rotate array - reverse first half, second half and then whole
+ 2. shuffle an array - find random and swap and reverse
+ 3. Intersection of two arrays - use hashset
+    intersection 2 - add to hashmap, Fost 2nd array, if val exists decrement val is hashmap and add to list
+ 4. merge 2 sorted arrays - Go from last
+ 5. min moves to equal array elements - find min of elements, moves += num[i] - min
+ 6. smaller than current element - sort clone, put count of clone i in hashmap and then iterate and update the clone
+ 7. three sum
+ 8. Summary ranges - if i==j print space else print num2 -> num2, i = j+1
+ 9. ProductExceptSelf, set last to 1, from last result[i] = result[i+1]*nums[i+1];
+                       Then from start  result[i] = result[i] * left;left =left*nums[i];
+ 10. Move zeroes
+ 11. Remove duplicates, nums[i]!=nums[j], i++
+ 12. Remove duplicates 2, inc j first else inc i,assign i to j,inc j
+ 13. Remove element - same as remove dup
+ 14. Trapping rain water - Stack, key : ans += distance * boundedDistance, dist = current-stack.peek()-1,
+                            boundedDistance = math.min(height[current], height[stack.peek()]- height[top];
+ 15. two sum2 - 2 pointer from start and end
+ 16. Next Permutation - find first decreasing element from last, move pointer j, swap, reverse(arr, i+1);
+
+String
+ 1. Reverse words in a string
+ 2. Group Anagrams
+ 3. Isomorphic string
+ 4. Anagram - increment and then decrement an arr. if arr val is not 0 then not anagram
+ 5. Max sliding window - queue , key -> i-k+1
+ 6. Longest Consecutive sequence - set Math.max(max,count);
+ 7. Wild card matching
+ 8. Backspace String compare - if not # push to stack else pop and convert to string , check for equals
+ 9. Is subsequence - check i,j, if equal move i move j, i has reached end of string length return
+ 10. Lexographically next string
+ 11. Num unique emails
+ 12. One Edit distance - m,n, keep increasing or decreasing pointers
+ 13. Repeated String match - append a to sb until index of b !=-1
+ 14. Reverse String
+ 15. Reverse vowels - add vowels to list, start from first and last, check and swap
+ 16. Shortest word distance - min = Math.min(min,m-n); or MAth.min(min,n-m);
+ 17. Text justification - templist. if len> maxwidth -> new func to append space. else use the templist, add to sb to append spaces
+ 18. Valid palindrome
+ 19. Find substring in a string - haystack prob, m-n+1
+ 20. Longest Palindromic substring - temp = helper(s,i,i); temp = helper(s,i,i+1); if(temp.length()>longest.length()), replace longest
+ 21. Permutation - for noth numbers and string, recursice , swap left and i, recurse call inc left, swap left and i again
+
+ Min window substring
+
+ Longest substring without repeating character - hashset
+    set not contain - add to set and calc result. if contains while i<j, if i == j in ci and break. remov from set inc i++
+ Longest substring with k distinct character - map
+    (map.size()<=k) return result
+    else while(size > k) keep decrementing or removing the val
+
+ SubArray
+ 1. subarray sum
+ 2. subarray sum equals k - hm, put sum in hm inc1 as value, if hm contains sum-k, add val of sum-k t0 count
+ 3. Minimum size subarray sum - answer = Math.min(answer,i-left+1);
+ 4. MAximum subarray sum
+ 5. Maximum subarray sum equals k - Math.max(max,i-map.get(difference)); put index as value
+
+ Binary Search
+ 1. Longest Increasing subsequence - key List, add to list else binary search, list.set(j,mid)
+ 2. Find number in rotated sorted array
+ 3. Find min in rotated sorted array - in any rotated array, nums[right] < nums[start>
+ 4. Longest common prefix - get minlen, binary search, is common prefix, check if str starts with o,len
+
+PriorityQueue
+ 1. Top K frequent elements - add count to map, add to pq, add elements from pq to return type and then reverse
+ 2. KClosestPointToOrigin - sort the points while adding to queue and then poll based on K
+ 3. Meeting rooms - sort intervals, intervals[i][1] > intervals[i+1][0]
+ 4. Meeting room 2 - sort, pri queue a-b, add first end time to pq, if start time > pq peek end time poll and add new end time
+ 5. Merge K sorted arrays - array container, arr, index. Add to priority queue. append value to result and if index<length add it back to priority queue
+ 6. Merge k sorted lists - same as above, use custom compare l1-l2. add to priority queue.append to list, if list.next!=null add back to queue
+ 7. Find kth largest
+
+DP
+ 1. Regular expression matching
+ 2. unique paths - result[i][j] = result[i-1][j] + result[i] [j-1];
+ 3. Word break - if dp[j] && dictSet.contains(s.substring(j,i), dp[i][j] = true;break
+ 4. Longest common substring - if equals -> set dp[i][j]=1,  dp[i][j] = 1+dp[i-1][j-1]; set max if dp[i][j] is greater
+ 5. Longest common subsequence - set dp[i][j]=0, if equals dp[i][j] = 1+dp[i-1][j-1], else dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);
+ 6. Edit Distance
+ 7. Buy and sell stock  - result = Math.max(result, prices[i] - min);
+
+Matrix
+ 1. Kth Smallest element in a matrix - add elem to pq.if (pq.size() ==  totalElem+1 - k) break else poll
+ 2. Number of islands - grid[i][j]=='1', inc count and merge. in merge mark visited to #
+ 3. Rotate an image - transpose and then reverse, when reversing  matrix[i][j] = matrix[i][n-j-1]
+ 4. Search 2D matrix - binary search, end = m*n-1
+ 5. Set Matrix zeros
+ 6. Spiral matrix - use pointers to manipulate, rowbegin,rowend, colbegin, colend
+ 7. Word search - board[i][j] == word.charAt(start++), set value to visited, similar to merge, reset the visited value
+ 8. Word search 2 - Trie
+ 9. Search 2d matrix 2 -if mj > target col --, else row++.
+
+DFS
+ 1. Shortest Palindrome
+ 2. Subset
+ 3. Combination sum
+ 4. Generate parenthesis
+ 5. Phone number combination
+ 6. LongestPalindromeSubstring - center out approach
+ 7. Palindromic substring - same as above
+
+Stack
+ 1. Min Stack - create stack with int{x,min}. As we add recompute min, for min return stack.peek()[1]
+ 2. Flatten nested list iterator - in const, add from last to stack. next - if integer return else loop and push to stack
+ 3. Balanced parenthesis - put to hashmap and check mapVal.get(stack.peek())==val
+ 4. Evaluate reverse polish - put int to stack, if operator,pop 2 values and perform the operation
+ 5. Longest Valid parenthesis - when (, push to stack when ), 1.pop from stack, 2. if empty insert index 3. max=i-stack.peek
+ 6. Remove min parenthesis to make valid - when ( push to stack, if ) - if stack is empty, add i to set else pop from stack
+
+ Tree
+ 1. Balanced bst - height of left - right should not be greater than 1
+ 2. Validate bst - send lower and upper range
+ 3. subtree of another - traverse(calls equals and itself with left and right) and equals method(checks for value)
+ 4. BST Iterator - add left to stack, for next - pop and return result. Add right val to stack
+ 5. LCA BST - p > node.val && q>node.val go right or left depending
+ 6. sortedArrayToBST - get mid, construct node.left and node.right recursively
+ 7. MergeTree - recursive add values and send left and right again
+ 8. invert tree - recursive and swap left and right
+ 9. find leaves of binary tree - get height, if list size <=height initalise new list, else add to list returns int
+ 10. Path sum - have queue and list. if sum == sumval and left and right is 0 return true. else keep adding to queue and add sumvalue to list

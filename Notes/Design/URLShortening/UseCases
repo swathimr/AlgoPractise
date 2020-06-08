@@ -1,0 +1,40 @@
+1. Given url, shorten the url and return it
+2. Redirect the url to original link
+3. Create custom short url
+4. Link expiration time
+
+API
+CREATE_URL(dev_key, original_url, custom_url, expiration_date)
+
+To avoid maliciousness, limit users with dev key to create only certian number of links
+This would be read heavy
+
+Datamodel :
+USer - user id, creationDate, last login, email
+url - hash, original url, user id, expiration
+Database - since no relationship, we could use no sql
+
+approach 1 : hash the url. if we gte same url maybe sequence it or append user id to create hash. no flexible
+approach 2 : key generation service
+Pre-calculation random six letter string is stored in database. We wont have to worry about duplications in this case
+Concurrency : As soon as used should be marked in db
+
+two tables with used and unused to avoid the concurrency
+Keys can be cached and moved to used keys table. but in case of server failure, we will end up not using those keys.
+
+if key is present - 304 redirect , original url in location field of request.
+
+Data partitioning and replication
+range based partitioning - a in 1, b in2. this leads to unbalanced db servers
+hash based partitioning - get hash of the object and depending of the hash decide which partition to use
+Our hashing function will randomly distribute URLs into different partition.
+overloaded partitions can be solved using consistent hashing
+
+CACHE
+cache memory - 20% of daily traffic.LRU can be used
+whenever there is a cache miss,fetch from the server and update all the cache replicas
+
+Lzy clean up to remove expired links
+- when they try to access the expired link , delete it
+- separate clean up service - very lightweight
+- default expiration

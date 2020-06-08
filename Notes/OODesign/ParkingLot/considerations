@@ -1,0 +1,13 @@
+1. discuss use cases sixe of lot 10 or 100's ? level ?
+2. come up with basic classes
+
+vehicle
+parkinglot
+spot
+size
+
+methods to consider
+place vehicle
+remove vehicle
+
+once done talk about concurrency issues, what if they try to access the spot at the same time

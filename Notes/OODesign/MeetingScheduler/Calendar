@@ -1,0 +1,22 @@
+class Calendar {
+    MeetingRoom room;
+    List<Meeting> meetings;
+
+    public Calendar() {
+        this.meetings = new ArrayList<>();
+    }
+
+    public boolean checkAvailability(Date start, Date end) {
+        for (Meeting meeting : meetings) {
+            if (meeting.end > start || meeting.start < end)
+                return false;
+        }
+        return true;
+    }
+
+    public Meeting scheduleNewMeeting(Date start, Date end) {
+        Meeting meeting = new Meeting(room, start, end);
+        meetings.add(meeting);
+        return meeting;
+    }
+}

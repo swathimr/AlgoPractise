@@ -1,0 +1,4 @@
+class Attendee {
+    String name;
+    String email;
+}

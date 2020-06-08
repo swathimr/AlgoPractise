@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class FirstNonRepeatedCharacter {
 
-    public int firstUniqChar(String s) {
+    public int firstUniqueChar(String s) {
         HashMap<Character,Integer> map = new HashMap<>();
         for(int i=0;i<s.length();i++) {
             char c = s.charAt(i);
