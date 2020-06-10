@@ -8,9 +8,9 @@ public class SmallerThanCurrent {
 
     public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] clone = nums.clone();
-        Map<Integer,Integer> map = new HashMap<>();
-
         Arrays.sort(clone);
+
+        Map<Integer,Integer> map = new HashMap<>();
 
         for(int i= 0; i<nums.length; i++) {
             map.putIfAbsent(clone[i], i);

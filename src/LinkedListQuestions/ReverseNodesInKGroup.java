@@ -1,9 +1,6 @@
 package LinkedListQuestions;
 
 // 1->2->3->4->5
-
-import java.util.LinkedList;
-
 // time O(n) and space O(1)
 public class ReverseNodesInKGroup {
 

@@ -1,10 +1,13 @@
+/*
 package AmazonSpecific;
 
 import java.util.*;
 
+*/
 /**
  * Given the amazon top deals data which included productId,timestamp,discuount, we have to return the products which will give more discount and particular time window.
- */
+ *//*
+
 public class AmazonProduct {
 
     public static void main(String[] args) {
@@ -79,3 +82,4 @@ public class AmazonProduct {
         }
         return result;
     }
+*/

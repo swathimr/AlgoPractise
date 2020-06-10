@@ -2,42 +2,23 @@ package DFS;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 //time compexity 2^n
 public class SubSet {
 
-  public ArrayList<ArrayList<Integer>> subsets(int[] S) {
-    if (S == null)
-      return null;
-
-    Arrays.sort(S);
-
-    ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-
-    for (int i = 0; i < S.length; i++) {
-      ArrayList<ArrayList<Integer>> temp = new ArrayList<ArrayList<Integer>>();
-
-      //get sets that are already in result
-      for (ArrayList<Integer> a : result) {
-        temp.add(new ArrayList<Integer>(a));
+  public List<List<Integer>> subsets(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    result.add(new ArrayList<>());
+    for(int val : nums) {
+      List<List<Integer>> temp = new ArrayList<>();
+      for(List<Integer> sub : result) {
+        List<Integer> a = new ArrayList<>(sub);
+        a.add(val);
+        temp.add(a);
       }
-
-      //add S[i] to existing sets
-      for (ArrayList<Integer> a : temp) {
-        a.add(S[i]);
-      }
-
-      //add S[i] only as a set
-      ArrayList<Integer> single = new ArrayList<Integer>();
-      single.add(S[i]);
-      temp.add(single);
-
       result.addAll(temp);
     }
-
-    //add empty set
-    result.add(new ArrayList<Integer>());
-
     return result;
   }
 

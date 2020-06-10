@@ -22,7 +22,7 @@ public class Permutation {
 
     public void helper(int left, int[] nums, List<List<Integer>> result) {
 
-        if(left ==nums.length-1) {
+        if(left == nums.length-1) {
             ArrayList<Integer> list = new ArrayList<>();
             for(int val:nums){
                 list.add(val);

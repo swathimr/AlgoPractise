@@ -3,6 +3,7 @@ package Heap;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+// same as min cost to connect sticks
 // time O(nlog n) and space O(n)
 public class LastStoneWeight {
     public int lastStoneWeight(int[] stones) {

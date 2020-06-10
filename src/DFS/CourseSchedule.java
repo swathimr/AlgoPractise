@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Build the course graph and check for iscyclic
  * DFS with backtracking
  * space and time O(E+V) , E is no of courses, V is no of prerequisites
  */
@@ -14,6 +15,7 @@ public class CourseSchedule {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> courseDict = new HashMap<>();
 
+        // key is 1
         for(int[] relation : prerequisites) {
             if(courseDict.containsKey(relation[1])){
                 courseDict.get(relation[1]).add(relation[0]);

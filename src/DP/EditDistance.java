@@ -27,7 +27,7 @@ public class EditDistance {
                     int delete = dp[i+1][j]+1;
                     int min = replace>insert?insert:replace;
                     min = delete>min?min:delete;
-                    dp[i+1][j+1] =min;
+                    dp[i+1][j+1] = min;
                 }
             }
         }

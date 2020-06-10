@@ -4,7 +4,7 @@ package LinkedListQuestions;
  * 3 cases case 1: insertVal is between 2 nodes e.g. 1->2->4, insert 3 condition: insertVal >= n.val
  * && insertVal <= n.next.val
  *
- * <p>case 2: insertVal is >= largest node value or <= smalles node value e.g. 1->2->4, insert 0 or
+ * <p>case 2: insertVal is >= largest node value or <= smallest node value e.g. 1->2->4, insert 0 or
  * 1->2->4, insert 5 condition: n.next.val < n.val && (insertVal >= n.val || insertVal <=
  * n.next.val)
  *

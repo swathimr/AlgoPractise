@@ -1,6 +1,11 @@
 package LinkedListQuestions;
 
-// merge sort
+/**
+ * Cut half
+ * sort head and slow
+ * merge sort
+ */
+
 public class SortList {
 
     public ListNode sortList(ListNode head) {
